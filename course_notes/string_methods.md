@@ -86,3 +86,13 @@ print(count_multi_char_x("apple", "pp"))
 ```
 
 ### Substring Between
+substring_between_letters()
+
+###### TASK
+<div class="theme__22QeW-d-YRjfwg7z9oiZH_"><p>Write a function named <code>substring_between_letters</code> that takes a string named <code>word</code>, a single character named <code>start</code>, and another character named <code>end</code>. This function should return the substring between the first occurrence of <code>start</code> and <code>end</code> in <code>word</code>. If <code>start</code> or <code>end</code> are not in <code>word</code>, the function should return <code>word</code>.</p>
+<p>For example, <code>substring_between_letters("apple", "p", "e")</code> should return <code>"pl"</code>.</p>
+</div>
+
+```python
+
+```
