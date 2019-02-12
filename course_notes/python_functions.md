@@ -121,3 +121,53 @@ def first_three_multiples(num):
 first_three_multiples(7) 
 ```
 
+### Dog Years
+dog_years()
+
+###### TASK
+<div class="theme__22QeW-d-YRjfwg7z9oiZH_"><p>Some say that every one year of a human's life is equivalent to seven years of a dog's life. Write a function named <code>dog_years()</code> that has two parameters named <code>name</code> and <code>age</code>. </p>
+<p>The function should compute the age in dog years and return the following string:</p>
+<pre><code><span class="CodeBlock__3-kebd7REMI5aXkez6K-B wrap__yxnEyEmMpigk6-3_Wvbzo defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined" data-reactroot=""><div class="CodeMirror">"{name}, you are {age} years old in dog years"</div></span>
+</code></pre><p>Test this function with your name and your age!</p>
+</div>
+
+```python
+def dog_years(name,age):
+  return "{}, you are {} years old in dog years".format(name, age * 7)
+```
+
+### Remainder
+remainder()
+
+###### TASK
+<div class="theme__22QeW-d-YRjfwg7z9oiZH_"><p>Write a function named <code>remainder()</code> that has two parameters named <code>num1</code> and <code>num2</code>. </p>
+<p>The function should return the remainder of twice <code>num1</code> divided by half of <code>num2</code>.</p>
+</div>
+
+```python
+def remainder(num1, num2):
+  return (2*num1)%(num2/2)
+```
+
+### Lots of Math
+lots_of_math()
+
+###### TASK
+<div class="theme__22QeW-d-YRjfwg7z9oiZH_"><p>Create a function named <code>lots_of_math()</code>. This function should have four parameters named <code>a</code>, <code>b</code>, <code>c</code>, and <code>d</code>. The function should print 3 lines and return 1 value. </p>
+<p>First, the sum of <code>a</code> and <code>b</code>. </p>
+<p>Second, <code>d</code> subtracted from <code>c</code>.</p>
+<p>Third, the first number printed, multiplied by the second number printed.</p>
+<p>Finally, it should <em>return</em> the third number printed mod <code>a</code>.</p>
+</div>
+
+```python
+
+def lots_of_math(a,b,c,d):
+  operation1 = a + b
+  operation2 = d - c
+  operation3 = operation1 * operation2 
+  print(operation1)
+  print(operation2)
+  print(operation3)
+  return operation3 % a
+```
