@@ -176,5 +176,50 @@ unique_values()
 </div>
 
 ```python 
+# Write your unique_values function here:
+def unique_values(my_dictionary):
+  unique_numbers = []
+  for keys,values in my_dictionary.items():
+    if values not in unique_numbers:
+      unique_numbers.append(values)
+  return len(unique_numbers)
+# Uncomment these function calls to test your  function:
+print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+```
+
+
+### Count First Letter
+count_first_letter()
+
+###### TASK
+<div class="theme__22QeW-d-YRjfwg7z9oiZH_"><p>Create a function named <code>count_first_letter</code> that takes a dictionary named <code>names</code> as a parameter. <code>names</code> should be a dictionary where the key is a last name and the value is a list of first names. For example, the dictionary might look like this:</p>
+<pre><code class="lang-py"><span language="py" class="CodeBlock__3-kebd7REMI5aXkez6K-B wrap__yxnEyEmMpigk6-3_Wvbzo defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined" data-reactroot=""><div class="CodeMirror"><span class="cm-variable">names</span> <span class="cm-operator">=</span> <!-- -->{<span class="cm-string">"Stark"</span>:<!-- --> <!-- -->[<span class="cm-string">"Ned"</span>,<!-- --> <span class="cm-string">"Robb"</span>,<!-- --> <span class="cm-string">"Sansa"</span>]<!-- -->,<!-- --> <span class="cm-string">"Snow"</span> <!-- -->:<!-- --> <!-- -->[<span class="cm-string">"Jon"</span>]<!-- -->,<!-- --> <span class="cm-string">"Lannister"</span>:<!-- --> <!-- -->[<span class="cm-string">"Jaime"</span>,<!-- --> <span class="cm-string">"Cersei"</span>,<!-- --> <span class="cm-string">"Tywin"</span>]<!-- -->}</div></span>
+</code></pre>
+<p>The function should return a new dictionary where each key is the first letter of a last name, and the value is the number of people whose last name begins with that letter.</p>
+<p>So in example above, the function would return:</p>
+<pre><code class="lang-py"><span language="py" class="CodeBlock__3-kebd7REMI5aXkez6K-B wrap__yxnEyEmMpigk6-3_Wvbzo defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined" data-reactroot=""><div class="CodeMirror">{<span class="cm-string">"S"</span> <!-- -->:<!-- --> <span class="cm-number">4</span>,<!-- --> <span class="cm-string">"L"</span>:<!-- --> <span class="cm-number">3</span>}</div></span>
+</code></pre>
+</div>
+
+
+```python
+# Write your count_first_letter function here:
+def count_first_letter(names):
+  first_letter = {}
+  for keys,values in names.items():
+    if keys[0] not in first_letter.keys():
+      first_letter[keys[0]] = len(values)
+    else:
+      first_letter[keys[0]] += len(values)
+  return first_letter
+# Uncomment these function calls to test your  function:
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}
 
 ```
+
