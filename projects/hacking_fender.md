@@ -8,13 +8,12 @@
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Are you there? We've opened up a communications link to <code>The Fender</code>'s secret computer. We need you to write a program that will read in the compromised usernames and passwords that are stored in a file called <code>"passwords.csv"</code>.</p>
 <p>First import the CSV module, since we'll be needing it to parse the data.</p>
 </div>
-* <p>We need to create a list of users whose passwords have been compromised, create a new list and save it to the variable <code>compromised_users</code>.</p>
-* <p>Next we'll need you to open up the file itself. Store it in a file object called <code>password_file</code>.</p>
-* <p>Pass the <code>password_file</code> object holder to our CSV reader for parsing. Save the parsed <code>csv.DictReader</code> object as <code>password_csv</code>.</p>
-* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Now we'll want to iterate through each of the lines in the CSV.</p>
+*  <p>We need to create a list of users whose passwords have been compromised, create a new list and save it to the variable <code>compromised_users</code>.</p>
+*  <p>Next we'll need you to open up the file itself. Store it in a file object called <code>password_file</code>.</p>
+*  <p>Pass the <code>password_file</code> object holder to our CSV reader for parsing. Save the parsed <code>csv.DictReader</code> object as <code>password_csv</code>.</p>
+*  <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Now we'll want to iterate through each of the lines in the CSV.</p>
 <p>Create a for loop and save each row of the CSV into the temporary variable <code>password_row</code>.</p>
 </div>
-* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Inside your <code>for</code> loop, print out <code>password_row['Username']</code>. This is the username of the person whose password was compromised.</p>
+*  <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Inside your <code>for</code> loop, print out <code>password_row['Username']</code>. This is the username of the person whose password was compromised.</p>
 <p>Run your code, do you see a list of usernames?</p>
 </div>
-* 
