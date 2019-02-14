@@ -8,23 +8,32 @@
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Are you there? We've opened up a communications link to <code>The Fender</code>'s secret computer. We need you to write a program that will read in the compromised usernames and passwords that are stored in a file called <code>"passwords.csv"</code>.</p>
 <p>First import the CSV module, since we'll be needing it to parse the data.</p>
 </div>
+
 *  <p>We need to create a list of users whose passwords have been compromised, create a new list and save it to the variable <code>compromised_users</code>.</p>
 *  <p>Next we'll need you to open up the file itself. Store it in a file object called <code>password_file</code>.</p>
+
 *  <p>Pass the <code>password_file</code> object holder to our CSV reader for parsing. Save the parsed <code>csv.DictReader</code> object as <code>password_csv</code>.</p>
+
 *  <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Now we'll want to iterate through each of the lines in the CSV.</p>
 <p>Create a for loop and save each row of the CSV into the temporary variable <code>password_row</code>.</p>
 </div>
+
 *  <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Inside your <code>for</code> loop, print out <code>password_row['Username']</code>. This is the username of the person whose password was compromised.</p>
 <p>Run your code, do you see a list of usernames?</p>
 </div>
+
 * <p>Remove the <code>print</code> statement. We want to add each username to the list of <code>compromised_users</code>. Use the list's <code>.append()</code> method to add the username to <code>compromised_users</code> instead of printing them.</p>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Exit out of your <code>with</code> block for <code>"passwords.csv"</code>. We have all the data we need from that file.</p>
 <p>Start a new <code>with</code> block, opening a file called <code>compromised_users.txt</code>. Open this file in write-mode, saving the file object as <code>compromised_user_file</code>.</p>
 </div>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Inside the new context-managed block opened by the <code>with</code> statement start a new <code>for</code> loop.</p>
 <p>Iterate over each of your <code>compromised_users</code>.</p>
 </div>
+
 * <p>Write the username of each <code>compromised_user</code> in <code>compromised_users</code> to <code>compromised_user_file</code>.</p>
+
 * <p>Exit out of that <code>with</code> block. You're doing great so far! We've got the data we need to employ as insurance against <code>The Fender</code>.</p>
 
 ### Notifying the Boss
