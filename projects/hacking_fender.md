@@ -28,3 +28,13 @@
 * <p>Exit out of that <code>with</code> block. You're doing great so far! We've got the data we need to employ as insurance against <code>The Fender</code>.</p>
 
 ### Notifying the Boss
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Your boss needs to know that you were successful in retrieving that compromised data. We'll need to send him an encoded message over the internet. Let's use JSON to do that.</p>
+<p>First we'll need to import the <code>json</code> module.</p>
+</div>
+
+* <p>Open a new JSON file in write-mode called <code>boss_message.json</code>. Save the file object to the variable <code>boss_message</code>.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Create a Python dictionary object within your <code>with</code> statement that relays a boss message. Call this <code>boss_message_dict</code>.</p>
+<p>Give it a <code>"recipient"</code> key with a value <code>"The Boss"</code>.</p>
+<p>Also give it a <code>"message"</code> key with the value <code>"Mission Success"</code>.</p>
+</div>
