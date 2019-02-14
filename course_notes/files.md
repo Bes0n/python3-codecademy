@@ -17,8 +17,11 @@
 ###### TASK
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Use <code>with</code> to open the file <strong>welcome.txt</strong>. Save the file object as <code>text_file</code>.</p>
 </div>
+
 * <p>Read the contents of <code>text_file</code> and save the results in <code>text_data</code>.</p>
+
 * <p>Print out <code>text_data</code>.</p>
+
 ```python 
 with open("welcome.txt") as text_file:
   text_data = text_file.read()
@@ -40,6 +43,7 @@ Full in the smile of the blue firmament.</div></span></pre><p><strong>script.py<
 
 ###### TASK
 * <p>Using a <code>with</code> statement, create a file object pointing to the file <strong>how_many_lines.txt</strong>. Store that file object in the variable <code>lines_doc</code>.</p>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Iterate through each of the lines in <code>lines_doc.readlines()</code> using a <code>for</code> loop.</p>
 <p>Inside the for loop print out each line of <strong>how_many_lines.txt</strong>.</p>
 </div>
@@ -66,7 +70,9 @@ Ere I forget, or die, or move away,</div></span></pre><p><strong>script.py</stro
 
 ###### TASK 
 * <p>Using a <code>with</code> statement, create a file object pointing to the file <strong>just_the_first.txt</strong>. Store that file object in the variable <code>first_line_doc</code>.</p>
+
 * <p>Save the first line of <strong>just_the_first.txt</strong> into the variable <code>first_line</code>.</p>
+
 * <p>Print out the variable <code>first_line</code>.</p>
 ```python
 with open("just_the_first.txt") as first_line_doc:
@@ -86,6 +92,7 @@ print(first_line)
 
 ###### TASK
 * <p>Create a file object for the file <strong>bad_bands.txt</strong> using the <code>open()</code> function with the <code>w</code> argument. Assign this object to the temporary variable <code>bad_bands_doc</code>.</p>
+
 * <p>Use the <code>bad_bands_doc.write()</code> method to add the name of a musical group you dislike to the document <code>bad_bands</code>.</p>
 
 ```python 
@@ -114,6 +121,7 @@ with open("bad_bands.txt", "w") as bad_bands_doc:
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>We've got a file, <strong>cool_dogs.txt</strong>, filled with all the cool dogs we know. Somehow while compiling this list we forgot about one very cool dog. Let's fix that problem by adding him to our <strong>cool_dogs.txt</strong>.</p>
 <p>Open up our file <strong>cool_dogs.txt</strong> in append-mode and assign it to the file object <code>cool_dogs_file</code>.</p>
 </div>
+
 * <p>Inside your <code>with</code> block, add "Air Buddy" to <strong>cool_dogs.txt</strong>. Air Buddy is a Golden Retriever that plays basketball, which more than qualifies him for this list.</p>
 
 ```python 
@@ -244,6 +252,7 @@ Erika Miller,jessica32,ejmiller79@yahoo.com</div></span></pre><p>Notice that the
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p> CSV files are just plain text files! </p>
 <p>Open <code>logger.csv</code> using our standard <code>with</code> syntax, saving the file object in the temporary variable <code>log_csv_file</code>.</p>
 </div>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Print out the contents of <code>logger.csv</code> by calling <code>.read()</code> on the file. Notice that it is parsed as a string.</p>
 </div>
 
@@ -276,9 +285,12 @@ Lynn Gonzales,goodmanjames,lynniegonz@hotmail.com</div></span></pre><p>Even thou
 ###### TASK
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Import the <code>csv</code> module.</p>
 </div>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Open up the file <strong>cool_csv.csv</strong> in the temporary variable <code>cool_csv_file</code>.</p>
 </div>
+
 * <p>Using <code>csv.DictReader</code> read the contents of <code>cool_csv_file</code> into a new variable called <code>cool_csv_dict</code>.</p>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p><strong>cool_csv.csv</strong> includes a cool fact about every person in the CSV.</p>
 <p>For each row in <code>cool_csv_dict</code> print out that row's <code>"Cool Fact"</code>.</p>
 </div>
@@ -317,8 +329,12 @@ Victor Williams;725 Gloria Views Suite 628\nEast Scott, IN 38095;768.708.3411x95
 
 ###### TASK
 * <p>Import the <code>csv</code> module.</p>
+
 * <p>Open up the file <strong>books.csv</strong> in the variable <code>books_csv</code>.</p>
-* <p>Create a <code>DictReader</code> instance that uses the <code>@</code> symbol as a delimiter to read <code>books_csv</code>. Save the result in a variable called <code>books_reader</code>.</p>
+
+* <p>Create a <code>DictReader</code> instance that uses the <code>@</code> symbol as a delimiter to read <code>books_csv</code>. Save 
+the result in a variable called <code>books_reader</code>.</p>
+
 * <p>Create a list called <code>isbn_list</code>, iterate through <code>books_csv</code> to get the ISBN number of every book in the CSV file. Use the <code>['ISBN']</code> key for the dictionary objects passed to it.</p>
 
 ```python
@@ -353,9 +369,13 @@ with open("books.csv") as books_csv:
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>We have a list in the workspace <code>access_log</code> which is a list of dictionaries we want to write out to a CSV file.</p>
 <p>Let's start by importing the <code>csv</code> module.</p>
 </div>
+
 * <p>Open up the file <strong>logger.csv</strong> in the temporary variable <code>logger_csv</code>. Don't forget to open the file in write-mode.</p>
+
 * <p>Create a <code>csv.DictWriter</code> instance called <code>log_writer</code>. Pass <code>logger_csv</code> as the first argument and then <code>fields</code> as a keyword argument to the keyword <code>fieldnames</code>.</p>
+
 * <p>Write the header to <code>log_writer</code> using the <code>.writeheader()</code> method.</p>
+
 * <p>Iterate through the <code>access_log</code> list and add each element to the CSV using <code>log_writer.writerow()</code>.</p>
 
 
@@ -396,10 +416,13 @@ with open("logger.csv", "w") as logger_csv:
 
 ###### TASK
 * <p>Let's read a JSON file! Start by importing the <code>json</code> module.</p>
+
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Open up the file <strong>message.json</strong>, saving the file object to the variable <code>message_json</code>. </p>
 <p>Open the file in read-mode, without passing any additional arguments to <code>open()</code>.</p>
 </div>
+
 * <p>Pass the JSON file object as an argument to <code>json.load()</code> and save the resulting Python dictionary as <code>message</code>.</p>
+
 * <p>Print out <code>message['text']</code>.</p>
 
 ```python
@@ -431,7 +454,9 @@ print(message['text'])
 * <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In your workspace we've put dictionary called <code>data_payload</code>. We want to save this to a file called <strong>data.json</strong>.</p>
 <p>Let's start by importing the <code>json</code> library.</p>
 </div>
+
 * <p>Open a new file object in the variable <code>data_json</code>. The filename should be <code>'data.json'</code> and the file should be opened in write-mode.</p>
+
 * <p>Call <code>json.dump()</code> with <code>data_payload</code> and <code>data_json</code> to convert our data to JSON and then save it to the file <strong>data.json</strong>.</p>
 
 ```python
