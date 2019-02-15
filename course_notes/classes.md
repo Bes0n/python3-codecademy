@@ -250,3 +250,309 @@ class Circle:
 teaching_table = Circle(36)  
 ```
 
+### Instance Variables
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>We've learned so far that a class is a schematic for a data type and an object is an instance of a class, but why is there such a strong need to differentiate the two if each object can only have the methods and class variables the class has? This is because each instance of a class can hold different kinds of data. </p>
+<p>The data held by an object is referred to as an <em>instance variable</em>. Instance variables aren't shared by all instances of a class — they are variables that are specific to the object they are attached to.</p>
+<p>Let's say that we have the following class definition:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">FakeDict</span>:
+  <span class="cm-keyword">pass</span></div></span></pre>
+<p>We can instantiate two different objects from this class, <code>fake_dict1</code> and <code>fake_dict2</code>, and assign instance variables to these objects using the same attribute notation that was used for accessing class variables.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-variable">fake_dict1</span> <span class="cm-operator">=</span> <span class="cm-variable">FakeDict</span>()
+<span class="cm-variable">fake_dict2</span> <span class="cm-operator">=</span> <span class="cm-variable">FakeDict</span>()
+
+<span class="cm-variable">fake_dict1</span>.<span class="cm-property">fake_key</span> <span class="cm-operator">=</span> <span class="cm-string">"This works!"</span>
+<span class="cm-variable">fake_dict2</span>.<span class="cm-property">fake_key</span> <span class="cm-operator">=</span> <span class="cm-string">"This too!"</span>
+
+<span class="cm-comment"># Let's join the two strings together!</span>
+<span class="cm-variable">working_string</span> <span class="cm-operator">=</span> <span class="cm-string">"{} {}"</span>.<span class="cm-property">format</span>(<span class="cm-variable">fake_dict1</span>.<span class="cm-property">fake_key</span>, <span class="cm-variable">fake_dict2</span>.<span class="cm-property">fake_key</span>)
+<span class="cm-builtin">print</span>(<span class="cm-variable">working_string</span>)
+<span class="cm-comment"># prints "This works! This too!"</span></div></span></pre>
+</div>
+
+###### TASK
+* <p>In <strong>script.py</strong> we have defined a <code>Store</code> class. Create two objects from this store class, named <code>alternative_rocks</code> and <code>isabelles_ices</code>.</p>
+
+* <p>Give them both instance attributes called <code>store_name</code>. Set <code>alternative_rocks</code>'s <code>store_name</code> to "Alternative Rocks". Set <code>isabelles_ices</code>'s <code>store_name</code> to "Isabelle's Ices".</p>
+
+```python
+class Store:
+  pass
+
+alternative_rocks = Store()
+isabelles_ices = Store()
+
+alternative_rocks.store_name = "Alternative Rocks"
+
+isabelles_ices.store_name = "Isabelle's Ices"
+```
+
+### Attribute Functions
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Instance variables and class variables are both accessed similarly in Python. This is no mistake, they are both considered <em>attributes</em> of an object. If we attempt to access an attribute that is neither a class variable nor an instance variable of the object Python will throw an <code>AttributeError</code>.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">NoCustomAttributes</span>:
+  <span class="cm-keyword">pass</span>
+
+<span class="cm-variable">attributeless</span> <span class="cm-operator">=</span> <span class="cm-variable">NoCustomAttributes</span>()
+
+<span class="cm-keyword">try</span>:
+  <span class="cm-variable">attributeless</span>.<span class="cm-property">fake_attribute</span>
+<span class="cm-keyword">except</span> <span class="cm-variable">AttributeError</span>:
+  <span class="cm-builtin">print</span>(<span class="cm-string">"This text gets printed!"</span>)
+
+<span class="cm-comment"># prints "This text gets printed!"</span></div></span></pre>
+<p>What if we aren't sure if an object has an attribute or not? <code>getattr()</code> is a Python function that works a lot like the usual dot-syntax (i.e., <code>object_name.attribute_name</code>) but we can supply a third argument that will be the default if the object does not have the given attribute. What if we only really care whether the attribute exists? <code>hasattr()</code> will return <code>True</code> if an object has a given attribute and <code>False</code> otherwise.</p>
+<p>Calling those functions looks like this:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-builtin">hasattr</span>(<span class="cm-variable">attributeless</span>, <span class="cm-string">"fake_attribute"</span>)
+<span class="cm-comment"># returns False</span>
+
+<span class="cm-builtin">getattr</span>(<span class="cm-variable">attributeless</span>, <span class="cm-string">"other_fake_attribute"</span>, <span class="cm-number">800</span>)
+<span class="cm-comment"># returns 800, the default value</span></div></span></pre>
+<p>Above we checked if the <code>attributeless</code> object has the attribute <code>fake_attribute</code>. Since it does not, <code>hasattr()</code> returned <code>False</code>. After that, we used <code>getattr</code> to attempt to retrieve <code>other_fake_attribute</code>. Since <code>other_fake_attribute</code> isn't a real attribute on <code>attributeless</code>, our call to <code>getattr()</code> returned the supplied default value <code>800</code>, instead of throwing an <code>AttributeError</code>.</p>
+</div>
+
+
+###### TASK
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> we have a list of different data types, some strings, some lists, and some dictionaries, all saved in the variable <code>how_many_s</code>.</p>
+<p>For every element in the list, check if the element has the attribute <code>count</code>. If so, count the number of times the string <code>"s"</code> appears in the element. Print this number.</p>
+</div>
+
+```python
+how_many_s = [{'s': False}, "sassafrass", 18, ["a", "c", "s", "d", "s"]]
+
+for element in how_many_s:
+  if hasattr(element, "count"):
+    print(element.count("s"))
+```
+
+### SELF
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Since we can already use dictionaries to store key-value pairs, using objects for that purpose is not really useful. Instance variables are more powerful when you can guarantee a rigidity to the data the object is holding. </p>
+<p>This convenience is most apparent when the constructor creates the instance variables, using the arguments passed in to it. If we were creating a search engine, and we wanted to create classes for each separate entry we could return. We'd do that like this:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">SearchEngineEntry</span>:
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">url</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">url</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>
+
+<span class="cm-variable">codecademy</span> <span class="cm-operator">=</span> <span class="cm-variable">SearchEngineEntry</span>(<span class="cm-string">"www.codecademy.com"</span>)
+<span class="cm-variable">wikipedia</span> <span class="cm-operator">=</span> <span class="cm-variable">SearchEngineEntry</span>(<span class="cm-string">"www.wikipedia.org"</span>)
+
+<span class="cm-builtin">print</span>(<span class="cm-variable">codecademy</span>.<span class="cm-property">url</span>)
+<span class="cm-comment"># prints "www.codecademy.com"</span>
+
+<span class="cm-builtin">print</span>(<span class="cm-variable">wikipedia</span>.<span class="cm-property">url</span>)
+<span class="cm-comment"># prints "www.wikipedia.org"</span></div></span></pre>
+<p>Since the <code>self</code> keyword refers to the object and not the class being called, we can define a <code>secure</code> method on the <code>SearchEngineEntry</code> class that returns the secure link to an entry.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">SearchEngineEntry</span>:
+  <span class="cm-variable">secure_prefix</span> <span class="cm-operator">=</span> <span class="cm-string">"https://"</span>
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">url</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">url</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>
+
+  <span class="cm-keyword">def</span> <span class="cm-def">secure</span>(<span class="cm-variable-2">self</span>):
+    <span class="cm-keyword">return</span> <span class="cm-string">"{prefix}{site}"</span>.<span class="cm-property">format</span>(<span class="cm-variable">prefix</span><span class="cm-operator">=</span><span class="cm-variable-2">self</span>.<span class="cm-property">secure_prefix</span>, <span class="cm-variable">site</span><span class="cm-operator">=</span><span class="cm-variable-2">self</span>.<span class="cm-property">url</span>)
+
+<span class="cm-variable">codecademy</span> <span class="cm-operator">=</span> <span class="cm-variable">SearchEngineEntry</span>(<span class="cm-string">"www.codecademy.com"</span>)
+
+<span class="cm-builtin">print</span>(<span class="cm-variable">codecademy</span>.<span class="cm-property">secure</span>())
+<span class="cm-comment"># prints "https://www.codecademy.com"</span>
+
+<span class="cm-builtin">print</span>(<span class="cm-variable">wikipedia</span>.<span class="cm-property">secure</span>())
+<span class="cm-comment"># prints "https://www.wikipedia.org"</span></div></span></pre>
+<p>Above we define our <code>secure()</code> method to take just the one required argument, <code>self</code>. We access both the class variable <code>self.secure_prefix</code> and the instance variable <code>self.url</code> to return a secure URL. </p>
+<p>This is the strength of writing object-oriented programs. We can write our classes to structure the data that we need and write methods that will interact with that data in a meaningful way.</p>
+</div>
+
+
+###### TASK
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> you'll find our familiar friend, the <code>Circle</code> class.</p>
+<p>Even though we usually know the <code>diameter</code> beforehand, what we need for most calculations is the <code>radius</code>. </p>
+<p>In <code>Circle</code>'s constructor set the instance variable <code>self.radius</code> to equal half the <code>diameter</code> that gets passed in.</p>
+</div>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Define three <code>Circle</code>s with three different diameters.</p>
+<ul>
+<li>A medium pizza, <code>medium_pizza</code>, that is 12 inches across.</li>
+<li>Your teaching table, <code>teaching_table</code>, which is 36 inches across.</li>
+<li>The Round Room auditorium, <code>round_room</code>, which is 11,460 inches across.</li>
+</ul>
+</div>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Define a new method <code>circumference</code> for your circle object that takes only one argument, <code>self</code>, and returns the circumference of a circle with the given radius by this formula:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-variable">circumference</span> <span class="cm-operator">=</span> <span class="cm-number">2</span> <span class="cm-operator">*</span> <span class="cm-variable">pi</span> <span class="cm-operator">*</span> <span class="cm-variable">radius</span></div></span></pre>
+</div>
+
+* <p>Print out the circumferences of <code>medium_pizza</code>, <code>teaching_table</code>, and <code>round_room</code>.</p>
+
+```python
+class Circle:
+  pi = 3.14
+  def __init__(self, diameter):
+    print("Creating circle with diameter {d}".format(d=diameter))
+    # Add assignment for self.radius here:
+    self.radius = diameter / 2
+  def circumference(self):
+    return 2 * self.pi * self.radius
+    
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza.circumference())
+print(teaching_table.circumference())
+print(round_room.circumference())
+```
+
+### Everything is an Object
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Attributes can be added to user-defined objects after instantiation, so it's possible for an object to have some attributes that are not explicitly defined in an object's constructor. We can use the <code>dir()</code> function to investigate an object's attributes at runtime. <code>dir()</code> is short for <em>directory</em> and offers an organized presentation of object attributes.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">FakeDict</span>:
+  <span class="cm-keyword">pass</span>
+
+<span class="cm-variable">fake_dict</span> <span class="cm-operator">=</span> <span class="cm-variable">FakeDict</span>()
+<span class="cm-variable">fake_dict</span>.<span class="cm-property">attribute</span> <span class="cm-operator">=</span> <span class="cm-string">"Cool"</span>
+
+<span class="cm-builtin">dir</span>(<span class="cm-variable">fake_dict</span>)
+<span class="cm-comment"># Prints ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'attribute']</span></div></span></pre>
+<p>That's certainly a lot more attributes than we defined! Python automatically adds a number of attributes to all objects that get created. These internal attributes are usually indicated by double-underscores. But sure enough, <code>attribute</code> is in that list.</p>
+<p>Do you remember being able to use <code>type()</code> on Python's native data types? This is because they are also objects in Python. Their classes are <code>int</code>, <code>float</code>, <code>str</code>, <code>list</code>, and <code>dict</code>. These Python classes have special syntax for their instantiation, <code>1</code>, <code>1.0</code>, <code>"hello"</code>, <code>[]</code>, and <code>{}</code> specifically. But these instances are still full-blown objects to Python.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-variable">fun_list</span> <span class="cm-operator">=</span> [<span class="cm-number">10</span>, <span class="cm-string">"string"</span>, {<span class="cm-string">'abc'</span>: <span class="cm-keyword">True</span>}]
+
+<span class="cm-builtin">type</span>(<span class="cm-variable">fun_list</span>)
+<span class="cm-comment"># Prints &lt;class 'list'&gt;</span>
+
+<span class="cm-builtin">dir</span>(<span class="cm-variable">fun_list</span>)
+<span class="cm-comment"># Prints ['__add__', '__class__', [...], 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']</span></div></span></pre>
+<p>Above we define a new list. We check it's type and see that's an instantiation of class <code>list</code>. We use <code>dir()</code> to explore its attributes, and it gives us a large number of internal Python dunder attributes, but, afterward, we get the usual list methods.</p>
+</div>
+
+###### TASK
+* <p>Call <code>dir()</code> on the number <code>5</code>. Print out the results.</p>
+
+* <p>Define a function called <code>this_function_is_an_object</code>. It can take any parameters and return anything you'd like.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Print out the result of calling <code>dir()</code> on <code>this_function_is_an_object</code>. </p>
+<p>Functions are objects too!</p>
+</div>
+
+
+```python
+dir(5)
+
+def this_function_is_an_object():
+  return
+
+print(dir(this_function_is_an_object))
+```
+
+### String Representation
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>One of the first things we learn as programmers is how to print out information that we need for debugging. Unfortunately, when we print out an object we get a default representation that seems fairly useless.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Employee</span>():
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">name</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">name</span> <span class="cm-operator">=</span> <span class="cm-variable">name</span>
+
+<span class="cm-variable">argus</span> <span class="cm-operator">=</span> <span class="cm-variable">Employee</span>(<span class="cm-string">"Argus Filch"</span>)
+<span class="cm-builtin">print</span>(<span class="cm-variable">argus</span>)
+<span class="cm-comment"># prints "&lt;__main__.Employee object at 0x104e88390&gt;"</span></div></span></pre>
+<p>This default string representation gives us some information, like where the class is defined and our computer's memory address where this object is stored, but is usually not useful information to have when we are trying to debug our code.</p>
+<p>We learned about the dunder method <code>__init__</code>. Now, we will learn another dunder method called  <code>__repr__</code>. This is a method we can use to tell Python what we want the <em>string representation</em> of the class to be. <code>__repr__</code> can only have one parameter, <code>self</code>, and must return a string.</p>
+<p>In our <code>Employee</code> class above, we have an instance variable called <code>name</code> that should be unique enough to be useful when we're printing out an instance of the  <code>Employee</code> class.</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Employee</span>():
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">name</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">name</span> <span class="cm-operator">=</span> <span class="cm-variable">name</span>
+
+  <span class="cm-keyword">def</span> <span class="cm-def">__repr__</span>(<span class="cm-variable-2">self</span>):
+    <span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">name</span>
+
+<span class="cm-variable">argus</span> <span class="cm-operator">=</span> <span class="cm-variable">Employee</span>(<span class="cm-string">"Argus Filch"</span>)
+<span class="cm-builtin">print</span>(<span class="cm-variable">argus</span>)
+<span class="cm-comment"># prints "Argus Filch"</span></div></span></pre>
+<p>We implemented the <code>__repr__</code> method and had it return the <code>.name</code> attribute of the object. When we printed the object out it simply printed the <code>.name</code> of the object! Cool!</p>
+</div>
+
+###### TASK
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Add a <code>__repr__</code> method to the <code>Circle</code> class that returns</p>
+<pre><span language="md" class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined"><div class="CodeMirror">Circle with radius {radius}</div></span></pre></div>
+
+* <p>Print out <code>medium_pizza</code>, <code>teaching_table</code>, and <code>round_room</code>.</p>
+
+```python
+class Circle:
+  pi = 3.14
+  
+  def __init__(self, diameter):
+    self.radius = diameter / 2
+  
+  def area(self):
+    return self.pi * self.radius ** 2
+  
+  def circumference(self):
+    return self.pi * 2 * self.radius
+  
+  def __repr__(self):
+    return "Circle with radius {radius}".format(radius=self.radius)
+  
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza)
+print(teaching_table)
+print(round_room)
+```
+
+### Review
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>So far we've covered what a data type actually is in Python. We explored what the functionality of Python's built-in types (also referred to as <em>primitives</em>) are. We learned how to create our own data types using the <code>class</code> keyword.</p>
+<p>We explored the relationship between a class and an object — we create objects when we instantiate a class, we find the class when we check the <code>type()</code> of an object. We learned the difference between class variables (the same for all objects of a class) and instance variables (unique for each object).</p>
+<p>We learned about how to define an object's functionality with methods. We created multiple objects from the same class, all with similar functionality, but with different internal data. They all had the same methods, but produced different output because they were different instances.</p>
+<p>Take a moment to congratulate yourself, object-oriented programming is a complicated concept.</p>
+</div>
+
+
+###### TASK
+* <p>Define a class <code>Student</code> this will be our data model at <em>Jan van Eyck High School and Conservatory</em>.</p>
+
+* <p>Add a constructor for <code>Student</code>. Have the constructor take in two parameters: a <code>name</code> and a <code>year</code>. Save those two as attributes <code>.name</code> and <code>.year</code>.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Create three instances of the <code>Student</code> class:</p>
+<ul>
+<li>Roger van der Weyden, year 10</li>
+<li>Sandro Botticelli, year 12</li>
+<li>Pieter Bruegel the Elder, year 8</li>
+</ul>
+<p>Save them into the variables <code>roger</code>, <code>sandro</code>, and <code>pieter</code>.</p>
+</div>
+
+* <p>Create a <code>Grade</code> class, with <code>minimum_passing</code> as an attribute set to <code>65</code>.</p>
+
+* <p>Give <code>Grade</code> a constructor. Take in a parameter <code>score</code> and assign it to <code>self.score</code>.</p>
+
+* <p>In the body of the constructor for <code>Student</code>, declare <code>self.grades</code> as an empty list.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Add an <code>.add_grade()</code> method to <code>Student</code> that takes a parameter, <code>grade</code>.</p>
+<p><code>.add_grade()</code> should verify that <code>grade</code> is of type <code>Grade</code> and if so, add it to the <code>Student</code>'s <code>.grades</code>.</p>
+<p>If <code>grade</code> isn't an instance of <code>Grade</code> then <code>.add_grade()</code> should do nothing.</p>
+</div>
+
+* <p>Create a new <code>Grade</code> with a score of <code>100</code> and add it to <code>pieter</code>'s <code>.grades</code> attribute using <code>.add_grade()</code>.</p>
+
+
+
+```python
+class Student:
+  def __init__(self, name, year):
+    self.name = name
+    self.year = year
+    self.grades = []
+  
+  def add_grade(self, grade):
+    if type(grade) is Grade:
+      self.grades.append(grade)
+    
+roger = Student("Roger van der Weyden", 10)
+sandro = Student("Sandro Botticelli", 12)
+pieter = Student("Pieter Bruegel the Elder", 8)
+
+class Grade:
+  minimum_passing = 65
+  
+  def __init__(self, score):
+    self.score = score
+    
+pieter.add_grade(Grade(100))    
+```
+
