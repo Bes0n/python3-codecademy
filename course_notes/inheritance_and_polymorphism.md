@@ -354,10 +354,10 @@ len(a_string)
 
 <span class="cm-comment"># Color with RGB: (255, 255, 255)</span>
 <span class="cm-variable">white</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span> <span class="cm-operator">+</span> <span class="cm-variable">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">green</span></div></span></pre>
+
+
 <p>Since we defined an <code>__add__</code> method for our <code>Color</code> class, we were able to add these objects together using the <code>+</code> operator.</p>
 </div>
-
-
 
 ###### TASK
 
