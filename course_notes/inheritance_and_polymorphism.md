@@ -413,7 +413,51 @@ salt = sodium + chlorine
 ```
 
 ### Dunder Methods II
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Python offers a whole suite of magic methods a class can implement that will allow us to use the same syntax as Python's built-in data types. You can write functionality that allows custom defined types to behave like lists:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">UserGroup</span>:
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">users</span>, <span class="cm-variable">permissions</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">user_list</span> <span class="cm-operator">=</span> <span class="cm-variable">users</span>
+    <span class="cm-variable-2">self</span>.<span class="cm-property">permissions</span> <span class="cm-operator">=</span> <span class="cm-variable">permissions</span>
 
+  <span class="cm-keyword">def</span> <span class="cm-def">__iter__</span>(<span class="cm-variable-2">self</span>):
+    <span class="cm-keyword">return</span> <span class="cm-builtin">iter</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">user_list</span>)
+
+  <span class="cm-keyword">def</span> <span class="cm-def">__len__</span>(<span class="cm-variable-2">self</span>):
+    <span class="cm-keyword">return</span> <span class="cm-builtin">len</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">user_list</span>)
+
+  <span class="cm-keyword">def</span> <span class="cm-def">__contains__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">user</span>):
+    <span class="cm-keyword">return</span> <span class="cm-variable">user</span> <span class="cm-keyword">in</span> <span class="cm-variable-2">self</span>.<span class="cm-property">user_list</span></div></span></pre>
+<p>In our <code>UserGroup</code> class above we defined three methods:</p>
+<ul>
+<li><code>__init__</code>, our constructor, which sets a list of users to the instance variable <code>self.user_list</code> and sets the group's <code>permissions</code> when we create a new <code>UserGroup</code>.</li>
+<li><code>__iter__</code>, the iterator, we use the <code>iter()</code> function to turn the list <code>self.user_list</code> into an <em>iterator</em> so we can use <code>for user in user_group</code> syntax. For more information on iterators, review <a href="https://docs.python.org/3/library/stdtypes.html#typeiter" target="_blank">Python's documentation of Iterator Types</a>.</li>
+<li><code>__len__</code>, the length method, so when we call <code>len(user_group)</code> it will return the length of the underlying <code>self.user_list</code> list.</li>
+<li><code>__contains__</code>, the check for containment, allows us to use <code>user in user_group</code> syntax to check if a <code>User</code> exists in the <code>user_list</code> we have.</li>
+</ul>
+<p>These methods allow <code>UserGroup</code> to act like a list using syntax Python programmers will already be familiar with. If all you need is something to act like a list you could absolutely have used a list, but if you want to bundle some other information (like a group's permissions, for instance) having syntax that allows for list-like operations can be very powerful.</p>
+<p>We would be able to use the following code to do this, for example:</p>
+<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">User</span>:
+  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">username</span>):
+    <span class="cm-variable-2">self</span>.<span class="cm-property">username</span> <span class="cm-operator">=</span> <span class="cm-variable">username</span>
+
+<span class="cm-variable">diana</span> <span class="cm-operator">=</span> <span class="cm-variable">User</span>(<span class="cm-string">'diana'</span>)
+<span class="cm-variable">frank</span> <span class="cm-operator">=</span> <span class="cm-variable">User</span>(<span class="cm-string">'frank'</span>)
+<span class="cm-variable">jenn</span> <span class="cm-operator">=</span> <span class="cm-variable">User</span>(<span class="cm-string">'jenn'</span>)
+
+<span class="cm-variable">can_edit</span> <span class="cm-operator">=</span> <span class="cm-variable">UserGroup</span>([<span class="cm-variable">diana</span>, <span class="cm-variable">frank</span>], {<span class="cm-string">'can_edit_page'</span>: <span class="cm-keyword">True</span>})
+<span class="cm-variable">can_delete</span> <span class="cm-operator">=</span> <span class="cm-variable">UserGroup</span>([<span class="cm-variable">diana</span>, <span class="cm-variable">jenn</span>], {<span class="cm-string">'can_delete_posts'</span>: <span class="cm-keyword">True</span>})
+
+<span class="cm-builtin">print</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">can_edit</span>))
+<span class="cm-comment"># Prints 2</span>
+
+<span class="cm-keyword">for</span> <span class="cm-variable">user</span> <span class="cm-keyword">in</span> <span class="cm-variable">can_edit</span>:
+  <span class="cm-builtin">print</span>(<span class="cm-variable">user</span>.<span class="cm-property">username</span>)
+<span class="cm-comment"># Prints "diana" and "frank"</span>
+
+<span class="cm-keyword">if</span> <span class="cm-variable">frank</span> <span class="cm-keyword">in</span> <span class="cm-variable">can_delete</span>:
+  <span class="cm-builtin">print</span>(<span class="cm-string">"Since when do we allow Frank to delete things? Does no one remember when he accidentally deleted the site?"</span>)</div></span></pre>
+<p>Above we created a set of users and then added them to <code>UserGroup</code>s with specific permissions. Then we used Python built-in functions and syntax to calculate the length of a <code>UserGroup</code>, to iterate through a <code>UserGroup</code> and to check for a <code>User</code>'s membership in a <code>UserGroup</code>.</p>
+</div>
 
 ###### TASK
 
