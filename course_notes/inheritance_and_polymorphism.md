@@ -338,29 +338,37 @@ len(a_string)
     <span class="cm-variable">new_blue</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">blue</span>, <span class="cm-number">255</span>)
     <span class="cm-variable">new_green</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">green</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">green</span>, <span class="cm-number">255</span>)
 
-<p>Then, if we create the colors:</p>
-<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-variable">red</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">255</span>, <span class="cm-number">0</span>, <span class="cm-number">0</span>)
-<span class="cm-variable">blue</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">0</span>, <span class="cm-number">255</span>, <span class="cm-number">0</span>)
-<span class="cm-variable">green</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">0</span>, <span class="cm-number">0</span>, <span class="cm-number">255</span>)</div></span></pre>
+Then, if we create the colors:
+
+```python
+red = Color(255, 0, 0)
+blue = Color(0, 255, 0)
+green = Color(0, 0, 255)
+```
+
 <p>We can add them together using the <code>+</code> operator!</p>
-<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-comment"># Color with RGB: (255, 255, 0)</span>
-<span class="cm-variable">magenta</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span> <span class="cm-operator">+</span> <span class="cm-variable">blue</span>
 
-<span class="cm-comment"># Color with RGB: (0, 255, 255)</span>
-<span class="cm-variable">cyan</span> <span class="cm-operator">=</span> <span class="cm-variable">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">green</span>
 
-<span class="cm-comment"># Color with RGB: (255, 0, 255)</span>
-<span class="cm-variable">yellow</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span> <span class="cm-operator">+</span> <span class="cm-variable">green</span>
+```python
+# Color with RGB: (255, 255, 0)
+magenta = red + blue
 
-<span class="cm-comment"># Color with RGB: (255, 255, 255)</span>
-<span class="cm-variable">white</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span> <span class="cm-operator">+</span> <span class="cm-variable">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">green</span></div></span></pre>
+# Color with RGB: (0, 255, 255)
+cyan = blue + green
 
+# Color with RGB: (255, 0, 255)
+yellow = red + green
+
+# Color with RGB: (255, 255, 255)
+white = red + blue + green
+```
 
 <p>Since we defined an <code>__add__</code> method for our <code>Color</code> class, we were able to add these objects together using the <code>+</code> operator.</p>
-</div>
 
 ###### TASK
-
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> there are two classes defined, <code>Atom</code> and <code>Molecule</code>.</p>
+<p>Give <code>Atom</code> a <code>.__add__(self, other)</code> method that returns a Molecule with the two <code>Atom</code>s.</p>
+</div>
 
 ```python
 
