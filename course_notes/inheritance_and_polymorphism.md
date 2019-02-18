@@ -363,7 +363,7 @@ yellow = red + green
 white = red + blue + green
 ```
 
-<p>Since we defined an <code>__add__</code> method for our <code>Color</code> class, we were able to add these objects together using the <code>+</code> operator.</p>
+Since we defined an <code>__add__</code> method for our <code>Color</code> class, we were able to add these objects together using the <code>+</code> operator.
 
 ###### TASK
 <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> there are two classes defined, <code>Atom</code> and <code>Molecule</code>.</p>
