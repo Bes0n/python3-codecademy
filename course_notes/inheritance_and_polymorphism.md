@@ -460,8 +460,63 @@ salt = sodium + chlorine
 </div>
 
 ###### TASK
+* <p>In <strong>script.py</strong> you'll find the class <code>LawFirm</code>. Give <code>LawFirm</code> a <code>.__len__()</code> method that will return the number of lawyers in the law firm.</p>
+
+* <p>Give <code>LawFirm</code> a <code>.__contains__()</code> method that takes two parameters: <code>self</code> and <code>lawyer</code> and checks to see if <code>lawyer</code> is in <code>self.lawyers</code>.</p>
+
+```python
+class LawFirm:
+  def __init__(self, practice, lawyers):
+    self.practice = practice
+    self.lawyers = lawyers
+  def __len__(self):
+    return len(self.lawyers)
+  def __contains__(self, lawyer):
+    return lawyer in self.lawyers
+    
+d_and_p = LawFirm("Injury", ["Donelli", "Paderewski"])
+```
+
+
+### Review 
+<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In this lesson, we learned more complicated relationships between classes. We learned:</p>
+<ul>
+<li>How to create a subclass of an existing class.</li>
+<li>How to redefine existing methods of a parent class in a subclass by overriding them.</li>
+<li>How to leverage a parent class's methods in the body of a subclass method using the <code>super()</code> function.</li>
+<li>How to define a Python exception that inherits from <code>Exception</code>.</li>
+<li>How to write programs that are flexible using interfaces and polymorphism.</li>
+<li>How to write data types that look and feel like native data types with dunder methods.</li>
+</ul>
+<p>These are really complicated concepts! It's a long journey to get to the state of comfortably being able to build class hierarchies that embody the concerns that your software will need to. Give yourself a pat on the back, you earned it!</p>
+</div>
+
+
+###### TASK
+* <p>Create a class <code>SortedList</code> that inherits from the built-in type <code>list</code>.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Recall that lists have a <code>.append()</code> method that takes a two arguments, <code>self</code> and <code>value</code>. We're going to have <code>SortedList</code> perform a sort after every <code>.append()</code>.</p>
+<p>Overwrite the <code>append</code> method, leave it blank for now with the <code>pass</code> keyword.</p>
+</div>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>First, we want our new <code>.append()</code> to actually add the item to the list.</p>
+<p>Write the code that would get <code>SortedList</code> to behave like a normal <code>list</code> when calling the <code>.append()</code> method.</p>
+</div>
+
+* <p>After you've appended the new value, sort the list.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>Incredible! We subclassed a Python primitive and introduced new behavior to it.</p>
+<p>Some things to consider:</p>
+<ul>
+<li>When a <code>SortedList</code> gets initialized with unsorted values (say if you call <code>SortedList([4, 1, 5])</code>) those values don't get sorted! How would you change <code>SortedList</code> so that the list is sorted right after the object gets created?</li>
+<li>What other Python builtins have functionality "missing"? Could you write a new dictionary that uses a fallback value when it tries to retrieve an item and can't?</li>
+</ul>
+</div>
 
 
 ```python
-
+class SortedList(list):
+  def append(self, value):
+    super().append(value)
+    self.sort()
 ```
