@@ -35,4 +35,29 @@
 }</div></span></pre>
 </div>
 
+* <p>Give our <code>Menu</code> class a string representation method that will tell you the <code>name</code> of the menu. Also, indicate in this representation when the menu is available.</p>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Try out our string representation. If you call <code>print(brunch)</code> it should print out something like the following:</p>
+<pre><span language="md" class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined"><div class="CodeMirror">brunch<!-- --> <!-- -->menu<!-- --> <!-- -->available<!-- --> <!-- -->from<!-- --> <!-- -->11am<!-- --> <!-- -->to<!-- --> <!-- -->4pm<!-- --></div></span></pre></div>
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p>Give <code>Menu</code> a method <code>.calculate_bill()</code> that has two parameters: <code>self</code>, and <code>purchased_items</code>, a list of the names of purchased items.</p>
+<p>Have <code>calculate_bill</code> return the total price of a purchase consisiting of all the items in <code>purchased_items</code>.</p>
+</div>
+
+* <p>Test out <code>Menu.calculate_bill()</code>. We have a breakfast order for one order of pancakes, one order of home fries, and one coffee. Pass that into <code>brunch.calculate_bill()</code> and print out the price.</p>
+
+* <p>What about an early-bird purchase? Our last guests ordered the salumeria plate and the vegan mushroom ravioli. Calculate the bill with <code>.caluclate_bill()</code>.</p>
+
+### Creating the Franchises
+
+* <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW narrativeMarkdown__1pqyNDZ_zljr-gC8Q1pur9"><p><em>Basta Fazoolin' with my Heart</em> has seen tremendous success with the family market, which is fantastic because when you're at <em>Basta Fazoolin' with my Heart</em> with family, that's great!</p>
+<p>We've decided to create more than one restaurant to offer our fantastic menus, services, and ambience around the country.</p>
+<p>First, let's create a <code>Franchise</code> class.</p>
+</div>
+
+* <p>Give the <code>Franchise</code> class a constructor. Take in an <code>address</code>, and assign it to <code>self.address</code>. Also take in a list of <code>menus</code> and assign it to <code>self.menus</code>.</p>
+
+* <p>Let's create our first two franchises! Our flagship store is located at <code>"1232 West End Road"</code> and our new installment is located at <code>"12 East Mulberry Street"</code>. Pass in all four menus along with these addresses to define <code>flagship_store</code> and <code>new_installment</code>.</p>
+
+* <p>Give our <code>Franchise</code>s a string represenation so that we'll be able to tell them apart. If we print out a <code>Franchise</code> it should tell us the address of the restaurant.</p>
 
