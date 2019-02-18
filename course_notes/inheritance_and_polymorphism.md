@@ -321,8 +321,6 @@ len(a_string)
     <span class="cm-variable">new_blue</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">blue</span>, <span class="cm-number">255</span>)
     <span class="cm-variable">new_green</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">green</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">green</span>, <span class="cm-number">255</span>)
 
-    <span class="cm-keyword">return</span> <span class="cm-variable">Color</span>(<span class="cm-variable">new_red</span>, <span class="cm-variable">new_blue</span>, <span class="cm-variable">new_green</span>)
-
 <span class="cm-variable">red</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">255</span>, <span class="cm-number">0</span>, <span class="cm-number">0</span>)
 <span class="cm-variable">blue</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">0</span>, <span class="cm-number">255</span>, <span class="cm-number">0</span>)
 
@@ -340,7 +338,6 @@ len(a_string)
     <span class="cm-variable">new_blue</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">blue</span>, <span class="cm-number">255</span>)
     <span class="cm-variable">new_green</span> <span class="cm-operator">=</span> <span class="cm-builtin">min</span>(<span class="cm-variable-2">self</span>.<span class="cm-property">green</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>.<span class="cm-property">green</span>, <span class="cm-number">255</span>)
 
-    <span class="cm-keyword">return</span> <span class="cm-variable">Color</span>(<span class="cm-variable">new_red</span>, <span class="cm-variable">new_blue</span>, <span class="cm-variable">new_green</span>)</div></span></pre>
 <p>Then, if we create the colors:</p>
 <pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-variable">red</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">255</span>, <span class="cm-number">0</span>, <span class="cm-number">0</span>)
 <span class="cm-variable">blue</span> <span class="cm-operator">=</span> <span class="cm-variable">Color</span>(<span class="cm-number">0</span>, <span class="cm-number">255</span>, <span class="cm-number">0</span>)
@@ -359,6 +356,8 @@ len(a_string)
 <span class="cm-variable">white</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span> <span class="cm-operator">+</span> <span class="cm-variable">blue</span> <span class="cm-operator">+</span> <span class="cm-variable">green</span></div></span></pre>
 <p>Since we defined an <code>__add__</code> method for our <code>Color</code> class, we were able to add these objects together using the <code>+</code> operator.</p>
 </div>
+
+
 
 ###### TASK
 
