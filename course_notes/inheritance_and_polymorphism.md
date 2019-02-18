@@ -301,13 +301,6 @@ len(a_string)
 ```
 
 ### Dunder Methods 
-<div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>One way that we can introduce polymorphism to our class definitions is by using Python's special dunder methods. We've explored a few already, the constructor <code>__init__</code> and the string representation method <code>__repr__</code>, but that's only scratching the tip of the iceberg.</p>
-<p>Python gives us the power to define dunder methods that define a custom-made class to look and behave like a Python builtin. What does that mean? Say we had a class that has an addition method:</p>
-<pre><span class="CodeBlock__1F3rKYW3tV11w2KEKvALNg wrap__1LR6hOLkoUYCHqQeJFO6HA defaults__1l9bk0Z91YqvzRByZKNgHF cc__1zsV8w8Rj_vs2ayVLJ-2x undefined language-py" language="py"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Color</span>:
-  <span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">red</span>, <span class="cm-variable">blue</span>, <span class="cm-variable">green</span>):
-    <span class="cm-variable-2">self</span>.<span class="cm-property">red</span> <span class="cm-operator">=</span> <span class="cm-variable">red</span>
-    <span class="cm-variable-2">self</span>.<span class="cm-property">blue</span> <span class="cm-operator">=</span> <span class="cm-variable">blue</span>
-    <span class="cm-variable-2">self</span>.<span class="cm-property">green</span> <span class="cm-operator">=</span> <span class="cm-variable">green</span>
 
 ###### TASK
 <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> there are two classes defined, <code>Atom</code> and <code>Molecule</code>.</p>
