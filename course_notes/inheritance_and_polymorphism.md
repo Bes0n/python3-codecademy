@@ -302,6 +302,10 @@ len(a_string)
 
 ### Dunder Methods 
 
+One way that we can introduce polymorphism to our class definitions is by using Python's special dunder methods. We've explored a few already, the constructor __init__ and the string representation method __repr__, but that's only scratching the tip of the iceberg.
+
+Python gives us the power to define dunder methods that define a custom-made class to look and behave like a Python builtin. What does that mean? Say we had a class that has an addition method:
+
 ###### TASK
 <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW"><p>In <strong>script.py</strong> there are two classes defined, <code>Atom</code> and <code>Molecule</code>.</p>
 <p>Give <code>Atom</code> a <code>.__add__(self, other)</code> method that returns a Molecule with the two <code>Atom</code>s.</p>
